@@ -48,9 +48,26 @@
                             $sampleModel = new SampleModel($pdo);
 
                             $sampleList = $sampleModel -> getAllSamples();
+                            
+                           
                             include 'views/sample-list.php';
-                            $db = null;
+                           
+                            
+                            print "<button type='button' id='btn-download' class='btn btn-success'>Download xcel sheet</button>";              
+                            
+                            $pdo = null;
                         ?>
+                        
+                        <script>
+    function download(){
+        document.location.replace('functions/XmlDownLoad.php');
+    }
+    window.onload = function() {
+        var btnDownload = document.getElementById('btn-download');
+        btnDownload.onclick = download;
+    } 
+                        
+                        </script>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
